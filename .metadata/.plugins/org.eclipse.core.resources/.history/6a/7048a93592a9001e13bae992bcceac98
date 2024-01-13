@@ -1,0 +1,9 @@
+package coverForUsingTestNG;
+
+import org.testng.annotations.Test;
+
+public class TestNGTestClass1_CoverFox {
+  @Test
+  public void f() {
+  }
+}

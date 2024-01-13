@@ -1,0 +1,44 @@
+package coverFoxPOM;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
+
+public class CoverFoxAgeDetailPage 
+{
+     // variable
+	@FindBy (id="Age-You")private WebElement AgeDropDown;
+	@FindBy(className = "next-btn") private WebElement NextButtonOnAgePage;
+	// constructor
+	public CoverFoxAgeDetailPage(WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);;
+	}
+	
+	// first we need to handle to dropdown
+	
+	public void handleToAgeDropDown()
+	{
+		Select s = new Select(AgeDropDown);
+		s.selectByValue("29y");
+	}
+	
+	// methods
+	
+	public void ClickOnNextButtonOnAgePage()
+	{
+		NextButtonOnAgePage.click();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

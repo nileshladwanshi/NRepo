@@ -1,0 +1,34 @@
+package DataProvider;
+
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+public class FBDataProvider 
+{
+ // methods ------- data provider
+	// string = firstname, lastname , mobnumber
+	
+	// her ek data provider ko name lgta hai because of it is easy to identifying to our data provider
+	
+	@DataProvider (name = "FBRegression")
+	public static void FBDateSet () 
+	{
+		String Data [] []= {{"Sarika","Jagtap","9096714048"},{"Sudhir","Suryawanshi","9960259292"},{"Yogita","Jagtap","9999999999"}};
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

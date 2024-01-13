@@ -1,0 +1,54 @@
+package coverForUsingTestNG;
+
+import java.util.List;
+
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class CoverFoxResultPage 
+{
+
+	@FindBy (xpath = "//div[contains(text(),'matching Health')]") private WebElement resultInString;
+	@FindBy(id = "plans-list") private List<WebElement> AllplanList;
+	
+	public  CoverFoxResultPage (WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	public int availablePlanNumberFromText()
+	// we use int insted of void because we want to give the value in int
+	{
+		String text = resultInString.getText();
+	//49 matching Health Insurance Plans
+	String ar[] = text.split(" ");
+	 String numOfResultInString=ar[0];
+	//convert String to integer
+	 int numberOfResultsInInt = Integer.parseInt(numOfResultInString);
+	 
+	 return numberOfResultsInInt;
+	 // 
+	 
+	 }
+	public int availablePlanNumberFromBanner()
+	{
+		 
+		int  totalNumOfPLan = AllplanList.size();
+		
+		return totalNumOfPLan;
+		
+		 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

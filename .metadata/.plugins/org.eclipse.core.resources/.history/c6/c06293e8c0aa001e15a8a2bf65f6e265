@@ -1,0 +1,43 @@
+package overFoxPOM1;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+
+public class overFoxHealthPlanPage 
+{
+	
+	// variable
+	
+	@FindBy (className = "next-btn") private WebElement nextButton;
+	
+	// constructor
+	
+	public overFoxHealthPlanPage (WebDriver driver)
+	{
+		PageFactory.initElements(driver, this);
+	}
+	
+	// methods
+	
+	public void ClickOnNextButton ()
+	{
+		nextButton.click();
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}

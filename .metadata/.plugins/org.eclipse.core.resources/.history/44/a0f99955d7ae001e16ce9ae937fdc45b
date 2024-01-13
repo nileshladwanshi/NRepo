@@ -1,0 +1,30 @@
+package DataProvider;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.annotations.Test;
+
+public class FbAccount {
+	
+	// dataprovide ch name then on which class we can use data provider
+	
+	@Test(dataProvider = "FBRegression",dataProviderClass = FBDataProvider.class)
+	
+	public void FbCreateAccount(String FirstName,String LastName, String MobNum, String Password) throws InterruptedException 
+	{
+		WebDriver driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(1000);
+		
+		driver.get("https://www.facebook.com/");
+		Thread.sleep(2000);
+		driver.findElement(By.linkText("Create new account")).click();
+		 Thread.sleep(2000);
+		 driver.findElement(By.name("firstname")).sendKeys(FirstName);
+		 driver.findElement(By.name("lastname")).sendKeys(LastName);
+		 driver.findElement(By.name("reg_email__")).sendKeys(MobNum);
+		 driver.findElement(By.name("reg_passwd__")).sendKeys(Password);
+		 Thread.sleep(2000);
+	    
+}}

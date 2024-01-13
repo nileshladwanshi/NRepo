@@ -1,0 +1,30 @@
+package coverForUsingTestNG;
+
+import org.testng.annotations.Test;
+
+public class TestNGTestClass1_CoverFox {
+	
+	CoverFoxAgeDetailPage agePage;
+	CoverFOxhealth_plan_addressDetails addressPage;
+	CoverFoxhealth_planPage HealthplanePage;
+	CoverFoxHomePage homePage;
+	CoverFoxResultPage resultPage;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+  @Test
+  public void f() {
+  }
+}

@@ -1,0 +1,100 @@
+package coverFoxTest;
+
+import java.time.Duration;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.Reporter;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class TestNGTestClass1_CoverFox {
+	// declaration of object of all page of classes
+	// 
+	WebDriver driver;
+	CoverFoxAgeDetailPage agePage;
+	CoverFOxhealth_plan_addressDetails addressPage;
+	CoverFoxhealth_planPage HealthplanePage;
+	CoverFoxHomePage homePage;
+	CoverFoxResultPage resultPage;
+	
+	@BeforeClass
+	public void LunchBrowser ()
+	{
+		driver = new ChromeDriver();
+		agePage = new CoverFoxAgeDetailPage(driver);
+		addressPage = new CoverFOxhealth_plan_addressDetails(driver);
+		HealthplanePage = new CoverFoxhealth_planPage(driver);
+		homePage = new CoverFoxHomePage(driver);
+		resultPage = new CoverFoxResultPage(driver);
+		
+		Reporter.log("opnening of browser", true);
+		driver.get("https://www.coverfox.com/");
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
+		
+	}
+	
+	@BeforeMethod
+	public void enterMemberDetails () throws InterruptedException
+	{
+		// before main test case step we write here
+		
+		Reporter.log("clicking on female button", true);
+		homePage.clickOnFemaleButton();
+		Thread.sleep(1000);
+		
+		Reporter.log("clicking on next button", true);
+		HealthplanePage.clickOnNextButton();
+		Thread.sleep(1000);
+		
+		Reporter.log("Handling dropdown & clicking on next button Of AgePage", true);
+		agePage.handleToAgeDropDown();
+		Reporter.log(" clicking on next button Of AgePage", true);
+		agePage.ClickOnNextButtonOnAgePage();
+		Thread.sleep(1000);
+		
+		Reporter.log("entering zipcode ", true);
+		addressPage.ZipCode();
+		Reporter.log("entering mobileNumber ", true);
+		addressPage.MobNUmber();
+		Reporter.log("Click On Continue Button ", true);
+		addressPage.ClickOnContinueButton();
+		
+	}
+	
+	@Test
+	public void ValidateTestPLaneFromTextAndBanner () throws InterruptedException
+	{
+		Thread.sleep(5000);
+		Reporter.log(" Fetching Number Of Result From Text ", true);
+		int textResult = resultPage.availablePlanNumberFromText();
+		Thread.sleep(3000);
+		Reporter.log(" Fetching Number Of Result From Banner ", true);
+	    int BannerResult = resultPage.availablePlanNumberFromBanner();
+	    
+	    Assert.assertEquals(textResult, BannerResult, "Text Result Are NOt Matching With Banner Result , Test Case IS Failde ");
+	    Reporter.log("TC is passed ", true);
+	    
+	}
+	
+	// when we want to log out then we use @AfteMethod
+	// when we want to closing to browser then we use @AfterClass 
+	
+	@AfterClass
+	public void closeBrowser () throws InterruptedException 
+	{
+		Reporter.log("closing of browser", true);
+		Thread.sleep(1000);
+	     driver.close();
+	}
+	
+	
+	
+	
+	
+  
+}
