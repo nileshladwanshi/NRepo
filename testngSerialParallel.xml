@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests">
+  <test thread-count="5" name="Ajio">
+    <classes>
+      <class name="testNgSerialAndParallel.Ajio"/>
+    </classes>
+  </test> <!-- test 1 -->
+  
+  <test thread-count="5" name="Flipkart">
+    <classes>
+      <class name="testNgSerialAndParallel.Flipkart"/>
+    </classes>
+  </test><!-- test 2 -->
+  
+  <test thread-count="5" name="Amazon">
+    <classes>
+      <class name="testNgSerialAndParallel.Amazon"/>
+    </classes>
+  </test><!-- test 3 -->
+ </suite> <!-- Suite -->
